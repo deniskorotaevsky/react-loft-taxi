@@ -1,4 +1,4 @@
-header {
+.login {
   margin: 0 auto;
   width: 100vw;
   height: 100vh;
@@ -10,7 +10,7 @@ header {
   justify-content: center;
 }
 
-.header_form {
+.login_form {
   height: auto;
   width: 500px;
   background-color: #fff;
@@ -21,7 +21,7 @@ header {
   justify-content: center;
 }
 
-.header_pole {
+.login_pole {
   width: 390px;
   margin: 65px 0;
 }
@@ -32,7 +32,7 @@ header {
   margin-bottom: 40px;
 }
 
-.header_newUser a {
+.login_newUser a {
   text-decoration: none;
 }
 
