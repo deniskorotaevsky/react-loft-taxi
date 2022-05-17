@@ -8,8 +8,6 @@ export function Map(props) {
             <Header setPage={setPage} />
             <h1>Map Page</h1>
         </div>
-
     )
 }
-
 export default Map;

@@ -48,20 +48,3 @@ class Login extends Component {
 }
 
 export default Login;
-
-
-//     import {Component } from 'react'
-
-// class Login extends Component {
-//     render() {
-//         const { setPage } = this.props;
-//         return (
-//             <form onSubmit={() => setPage('map')} >
-//                 <input name='login' />
-//                 <input name='password' />
-//                 <button type='submit'>Войти</button>
-//                 <button onClick={() => setPage('registration')}>Зарегестрироваться</button>
-//             </form >
-//         )
-//     }
-// }

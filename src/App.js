@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import Map from "./Map";
+import Profile from "./Profile";
 import Login from "./Login/Login";
 import Registration from "./Registration";
 
 const PAGES = {
   login: Login,
   map: Map,
-  registration: Registration
+  registration: Registration,
+  profile: Profile
 }
 
 class App extends Component {
@@ -25,7 +27,6 @@ class App extends Component {
       <>
         <main>
           <Page setPage={this.setPage} />
-
         </main>
       </>
     );
