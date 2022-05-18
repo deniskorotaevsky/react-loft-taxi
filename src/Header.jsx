@@ -1,5 +1,5 @@
 export function Header(props) {
-    const {setPage} = props;
+    const { setPage } = props;
 
     return (
         <header>
