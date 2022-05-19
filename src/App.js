@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Map from "./Map";
 import Profile from "./Profile";
 import Login from "./Login/Login";
-import Registration from "./Registration";
+import Registration from "./Registration/Registration";
 
 const PAGES = {
   login: Login,

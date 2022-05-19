@@ -1,7 +1,11 @@
-export function Profile() {
-    return(
+import { Header } from './Header';
+
+export function Profile(props) {
+    const { setPage } = props;
+    return (
         <div>
-            <h1> Profile</h1>
+            <Header setPage={setPage} />
+            <h1>Profile</h1>
         </div>
     )
 }
