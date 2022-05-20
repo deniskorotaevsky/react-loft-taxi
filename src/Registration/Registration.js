@@ -16,16 +16,16 @@ class Registration extends Component {
                 <div className={s.registration_form}>
                     <div className={s.registration_pole}>
 
-                        <p>Регистрация</p>
+                        <h1>Регистрация</h1>
                         <div className={s.registration_newUser}>
-                            Уже зарегистрирован?
+                            <p>Уже зарегистрирован?</p>
                             <button className={s.registrationBtn} type="submit" onClick={() => setPage('login')}>Войти</button>
                         </div>
 
                         <form onSubmit={() => setPage('map')} >
                             <div>
                                 <label>
-                                    Адрес электронной почты*
+                                    <p>Адрес электронной почты*</p>
                                     <input type='mail' name="mail" />
                                 </label>
                             </div>

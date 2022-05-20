@@ -14,15 +14,15 @@ class Login extends Component {
         </div>
         <div className={s.login_form}>
           <div className={s.login_pole}>
-            <p>Войти</p>
+            <h1>Войти</h1>
             <div className={s.login_newUser}>
-              Новый пользователь?
+              <p>Новый пользователь?</p>
               <button className={s.registrationBtn} type="submit" onClick={() => setPage('registration')}>Зарегистрируйтесь</button>
             </div>
             <form onSubmit={() => setPage('map')} >
               <div>
                 <label>
-                  Имя пользователя*
+                  <p>Имя пользователя*</p>
                   <input type='text' name="login" />
                 </label>
               </div>
@@ -32,7 +32,6 @@ class Login extends Component {
                   <input type='password' name="password" />
                 </label>
               </div>
-
               <button className={s.comeInBtn} type="submit">Войти</button>
             </form>
           </div>

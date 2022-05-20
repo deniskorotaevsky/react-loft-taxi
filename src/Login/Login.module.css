@@ -21,15 +21,27 @@
   justify-content: center;
 }
 
+.login_form p {
+  color: #959595;
+}
+
 .login_pole {
   width: 390px;
   margin: 65px 0;
+}
+
+h1 {
+  font-size: 36px;
 }
 
 .header_newUser {
   display: flex;
   align-items: center;
   margin-bottom: 40px;
+}
+
+.login_newUser {
+  display: flex;
 }
 
 .login_newUser a {
@@ -55,8 +67,6 @@
   background-color: rgba(0, 0, 0, 0);
   color: #3883e9;
 }
-
-
 
 input {
   border: none;
