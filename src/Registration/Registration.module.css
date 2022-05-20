@@ -10,6 +10,10 @@
   justify-content: center;
 }
 
+h1 {
+  font-size: 36px;
+}
+
 .registration_form {
   height: auto;
   width: 500px;
@@ -21,6 +25,10 @@
   justify-content: center;
 }
 
+.registration_form p {
+  color: #959595;
+}
+
 .registration_pole {
   width: 390px;
   margin: 65px 0;
@@ -30,6 +38,10 @@
   display: flex;
   align-items: center;
   margin-bottom: 40px;
+}
+
+.registration_newUser {
+  display: flex;
 }
 
 .registration_newUser a {
