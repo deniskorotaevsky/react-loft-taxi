@@ -1,50 +1,37 @@
-// import { Header } from './Header';
-
-// export function Map(props) {
-//     const { setPage } = props;
-//     return (
-//         <div>
-//             <Header setPage={setPage} />
-//             <h1>Map Page</h1>
-//         </div>
-//     )
-// }
-// export default Map;
-
-import { Header } from './Header/Header';
 import React from 'react';
-import { Component } from 'react';
+import { Header } from './Header/Header';
 import mapboxgl from 'mapbox-gl';
+
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVuaXNrb3JvdGFldnNreSIsImEiOiJjbDNka3I5N28wNmN4M2lvZjJ3MG4wNTBrIn0.wfYd0WCYq_QNcNlGkTvl0w';
 
-class Map extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            lng: 120,
-            lat: 80,
-            zoom: 2
-        }
+class Map extends React.Component {
+    componentDidMount() {
+        this.map = new mapboxgl.Map({
+            container: this.mapContainer,
+            style: 'mapbox://styles/mapbox/streets-v9'
+        });
     }
 
-    componentDidMount() {
-        const map = new mapboxgl.Map({
-            container: this.mapContainer,
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [this.state.lng, this.state.lat],
-            zoom: this.state.zoom
-        })
+    componentWillUnmount() {
+        this.map.remove();
     }
 
     render() {
+        const style = {
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            width: '100%'
+        };
+
         const { setPage } = this.props;
         return (
             <div style={{ height: '100vh', overflow: 'hidden'}}>
-                <Header setPage={setPage}/>
+                <Header setPage={setPage} />
+
                 <div>
-                    <div ref={el => this.mapContainer = el} style={{ width: '100%', height: '92vh'}} />
+                    <div ref={el => this.mapContainer = el} style={{ width: '100%', height: '92vh'}}/>;
                 </div>
             </div>
         )
