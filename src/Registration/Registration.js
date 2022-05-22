@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import logo from '../logo.png';
 import s from './Registration.module.css';
+import { PropTypes } from 'prop-types';
 
 class Registration extends Component {
 
@@ -57,5 +58,9 @@ class Registration extends Component {
         )
     }
 }
+
+Registration.propTypes = {
+    setPage: PropTypes.func
+  }
 
 export default Registration;
