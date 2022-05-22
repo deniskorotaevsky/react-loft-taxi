@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header } from './Header/Header';
 import mapboxgl from 'mapbox-gl';
-
+import { PropTypes } from 'prop-types';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVuaXNrb3JvdGFldnNreSIsImEiOiJjbDNka3I5N28wNmN4M2lvZjJ3MG4wNTBrIn0.wfYd0WCYq_QNcNlGkTvl0w';
 
@@ -20,7 +20,7 @@ class Map extends React.Component {
     render() {
         const style = {
             position: 'absolute',
-            top: 0,
+            top: '76px',
             bottom: 0,
             width: '100%'
         };
@@ -31,11 +31,15 @@ class Map extends React.Component {
                 <Header setPage={setPage} />
 
                 <div>
-                    <div ref={el => this.mapContainer = el} style={{ width: '100%', height: '92vh'}}/>;
+                    <div ref={el => this.mapContainer = el} style={style}/>;
                 </div>
             </div>
         )
     }
 }
+
+Map.propTypes = {
+    setPage: PropTypes.func
+  }
 
 export default Map;

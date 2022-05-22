@@ -1,5 +1,6 @@
 import logo from '../loft-black.png';
 import s from './Header.module.css';
+import { PropTypes } from 'prop-types';
 
 export function Header(props) {
     const { setPage } = props;
@@ -17,4 +18,9 @@ export function Header(props) {
         </header>
     )
 }
+
+Header.propTypes = {
+    setPage:  PropTypes.func
+}
+
 export default Header;
