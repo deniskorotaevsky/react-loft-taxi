@@ -29,7 +29,6 @@ class Map extends React.Component {
         return (
             <div style={{ height: '100vh', overflow: 'hidden'}}>
                 <Header setPage={setPage} />
-
                 <div>
                     <div ref={el => this.mapContainer = el} style={style}/>;
                 </div>
