@@ -59,7 +59,7 @@ h1 {
   border: none;
   font-size: 21px;
   margin-left: 60%;
-  margin-top: 40px; 
+  margin-top: 40px;
 }
 
 .registrationBtn {
@@ -71,10 +71,21 @@ h1 {
 input {
   border: none;
   border-bottom: 1px solid #eaeaea;
-  width: 390px;
+  width: 386px;
   box-shadow: none;
+  background: rgba(73, 27, 27, 0);
 }
 
 input:focus {
   outline: 0;
+}
+
+.warning {
+  height: 35px;
+  border-radius: 3px;
+  border: 1px solid red;
+  margin-top: -37px;
+  position: relative;
+  z-index: 11;
+  box-shadow: 0 0 10px rgba(196, 18, 18,0.2);
 }

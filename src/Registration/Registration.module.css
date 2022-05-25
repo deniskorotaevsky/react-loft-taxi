@@ -31,8 +31,13 @@ h1 {
 
 .registration_pole {
   width: 390px;
+  margin: 0 auto;
   margin: 65px 0;
 }
+/* label {
+  display: flex;
+  flex-direction: column;
+} */
 
 .header_newUser {
   display: flex;
@@ -75,15 +80,39 @@ input {
   box-shadow: none;
 }
 
+.input_userName {
+  width: 183px;
+  position: relative;
+}
+
+.input_warning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid grey;
+  height: 30px;
+}
+
 input:focus {
   outline: 0;
 }
 
 .registration_userName{
   display: flex;
+  justify-content: space-between;
 }
 
-.registration_userName input{
-  width: 90%;
-  
+.input_warning {
+  position: relative;
+  bottom: 20px;
+}
+
+.warning {
+  height: 35px;
+  border-radius: 3px;
+  border: 1px solid red;
+  margin-top: -37px;
+  position: relative;
+  z-index: 11;
+  box-shadow: 0 0 10px rgba(196, 18, 18,0.2);
 }
