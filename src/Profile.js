@@ -1,12 +1,9 @@
 import { PropTypes } from 'prop-types';
-
-
 import { Header } from './Header/Header';
 
-export function Profile(props) {
+export const Profile = (props) => {
     const { setPage } = props;
-    console.log(setPage);
-    console.log(typeof(setPage));
+
     return (
         <div>
             <Header setPage={setPage} />
@@ -16,7 +13,7 @@ export function Profile(props) {
 }
 
 Profile.propTypes = {
-    setPage:  PropTypes.func
+    setPage: PropTypes.func
 }
-export default Profile;
+export const ProfileWithAuth = Profile;
 

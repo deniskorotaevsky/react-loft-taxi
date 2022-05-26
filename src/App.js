@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import Map from "./Map";
-import Profile from "./Profile";
-import Login from "./Login/Login";
+import { Profile } from "./Profile";
+import { Login } from "./Login/Login";
 import Registration from "./Registration/Registration";
+import { withAuth } from "./AuthContext";
 
 const PAGES = {
-  login: Login,
-  map: Map,
-  registration: Registration,
-  profile: Profile
+  // login: Login,
+  login: (props) => <Login {...props} />,
+  map: (props) => <Map {...props} />,
+  registration: (props) => <Registration {...props} />,
+  profile: (props) => < Profile {...props} />
 }
 
 class App extends Component {
@@ -33,4 +35,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withAuth(App);

@@ -34,10 +34,6 @@ h1 {
   margin: 0 auto;
   margin: 65px 0;
 }
-/* label {
-  display: flex;
-  flex-direction: column;
-} */
 
 .header_newUser {
   display: flex;

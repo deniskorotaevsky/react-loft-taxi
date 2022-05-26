@@ -1,9 +1,10 @@
+import React from 'react';
 import logo from '../logo.png';
 import s from './Login.module.css';
 import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
 
-const Login = (props) => {
+export const Login = (props) => {
 
   const { setPage } = props;
 
@@ -14,8 +15,6 @@ const Login = (props) => {
   const [emailError, setEmailError] = useState('Поле не может быть пустым');
   const [passwordError, setPasswordError] = useState('Поле не может быть пустым');
   const [formValid, setFormValid] = useState(false);
-
-
 
   useEffect(() => {
     if (emailError || passwordError) {
@@ -60,9 +59,6 @@ const Login = (props) => {
     }
   }
 
-
-
-
   return (
     <div className={s.login}>
       <div className={s.login_logo}>
@@ -102,4 +98,4 @@ Login.propTypes = {
   setPage: PropTypes.func
 }
 
-export default Login;
+export const LoginWithAuth = Login;
