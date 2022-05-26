@@ -1,38 +1,79 @@
-import React, { Component } from "react";
-import Map from "./Map";
-import { Profile } from "./Profile";
-import { Login } from "./Login/Login";
-import Registration from "./Registration/Registration";
+import React from "react";
+import { ProfileWithAuth } from "./Profile";
+import  Login  from "./Login/Login";
+import  Map  from "./Map";
 import { withAuth } from "./AuthContext";
+import {Registration} from "./Registration/Registration";
+import PropTypes from 'prop-types';
+import "./App.css";
 
 const PAGES = {
-  // login: Login,
-  login: (props) => <Login {...props} />,
+  login: (props) => <LoginWithAuth {...props} />,
   map: (props) => <Map {...props} />,
+  profile: (props) => <ProfileWithAuth {...props} />,
   registration: (props) => <Registration {...props} />,
-  profile: (props) => < Profile {...props} />
-}
+};
 
-class App extends Component {
+class App extends React.Component {
+  state = { currentPage: "login" };
 
-  state = { page: 'login' }
-
-  setPage = (page) => {
-    this.setState({ page })
-  }
+  navigateTo = (page) => {
+    if (this.props.isLoggedIn) {
+      this.setState({ currentPage: page });
+    } else {
+      this.setState({ currentPage: "login" });
+    }
+  };
 
   render() {
-    const { page } = this.state;
-    const Page = PAGES[page];
-
     return (
       <>
-        <main>
-          <Page setPage={this.setPage} />
+        <header>
+          <nav>
+            <ul>
+              <li>
+                <button
+                  onClick={() => {
+                    this.navigateTo("login");
+                  }}
+                >
+                  Home
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    this.navigateTo("map");
+                  }}
+                >
+                  Map
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    this.navigateTo("profile");
+                  }}
+                >
+                  Profile
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main data-testid="container">
+          <section>
+            {PAGES[this.state.currentPage]({ navigate: this.navigateTo })}
+          </section>
         </main>
       </>
     );
   }
 }
 
+App.propTypes = {
+  isLoggedIn: PropTypes.bool
+};
+
 export default withAuth(App);
+
