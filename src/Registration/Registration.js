@@ -79,9 +79,6 @@ const Registration = (props) => {
             /^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$/i;
         if (!re.test(String(e.target.value).toLowerCase())) {
             setNameError('Введите имя')
-            if (!e.target.value) {
-                setNameError('Заполните поле')
-            }
         } else {
             setNameError('')
         }
@@ -93,17 +90,10 @@ const Registration = (props) => {
             /^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$/i;
         if (!re.test(String(e.target.value).toLowerCase())) {
             setSurnameError('Введите фамилию')
-            if (!e.target.value) {
-                setSurnameError('Заполните поле')
-            }
         } else {
             setSurnameError('')
         }
     }
-
-
-
-
 
     return (
         <div className={s.registration}>
@@ -158,7 +148,6 @@ const Registration = (props) => {
             </div>
         </div>
     )
-
 }
 
 Registration.propTypes = {
