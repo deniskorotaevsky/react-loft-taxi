@@ -3,6 +3,7 @@ import logo from '../logo.png';
 import s from './Login.module.css';
 import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
+import { withAuth } from "./AuthContext";
 
 export const Login = (props) => {
 
@@ -98,4 +99,4 @@ Login.propTypes = {
   setPage: PropTypes.func
 }
 
-export const LoginWithAuth = Login;
+export const LoginWithAuth = withAuth(Login);
