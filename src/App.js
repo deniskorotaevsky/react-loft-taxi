@@ -1,79 +1,37 @@
-import React from "react";
-import { ProfileWithAuth } from "./Profile";
-import  Login  from "./Login/Login";
-import  Map  from "./Map";
-import { withAuth } from "./AuthContext";
-import {Registration} from "./Registration/Registration";
-import PropTypes from 'prop-types';
-import "./App.css";
+import React, { Component } from "react";
+import Map from "./Map";
+import Profile from "./Profile";
+import Login from "./Login/Login";
+import Header from "./Header/Header";
+import Registration from "./Registration/Registration";
 
 const PAGES = {
-  login: (props) => <LoginWithAuth {...props} />,
-  map: (props) => <Map {...props} />,
-  profile: (props) => <ProfileWithAuth {...props} />,
-  registration: (props) => <Registration {...props} />,
-};
+  login: Login,
+  map: Map,
+  registration: Registration,
+  profile: Profile
+}
 
-class App extends React.Component {
-  state = { currentPage: "login" };
+class App extends Component {
 
-  navigateTo = (page) => {
-    if (this.props.isLoggedIn) {
-      this.setState({ currentPage: page });
-    } else {
-      this.setState({ currentPage: "login" });
-    }
-  };
+  state = { page: 'login' }
+
+  setPage = (page) => {
+    this.setState({ page })
+  }
 
   render() {
+    const { page } = this.state;
+    const Page = PAGES[page];
+
     return (
       <>
-        <header>
-          <nav>
-            <ul>
-              <li>
-                <button
-                  onClick={() => {
-                    this.navigateTo("login");
-                  }}
-                >
-                  Home
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    this.navigateTo("map");
-                  }}
-                >
-                  Map
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    this.navigateTo("profile");
-                  }}
-                >
-                  Profile
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <main data-testid="container">
-          <section>
-            {PAGES[this.state.currentPage]({ navigate: this.navigateTo })}
-          </section>
+        <main>
+          <Page setPage={this.setPage} />
         </main>
       </>
     );
   }
 }
 
-App.propTypes = {
-  isLoggedIn: PropTypes.bool
-};
-
-export default withAuth(App);
-
+export default App;
