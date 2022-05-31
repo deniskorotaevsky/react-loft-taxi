@@ -1,30 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
 import { PropTypes } from 'prop-types'
 import { withAuth } from "../AuthContext";
 import logo from '../logo.png';
 import s from './Home.module.css';
+import { useContext } from 'react';
+import AuthContext from '../AuthContext'
 
-export class Home extends Component {
-  goToProfile = (event) => {
+const Home = () => {
+
+const {logIn, logOut} = useContext(AuthContext)
+
+  const goToProfile = (event) => {
     event.preventDefault();
-    this.props.navigate("profile");
+    props.navigate("profile");
   };
 
-  authenticate = (event) => {
+  const authenticate = (event) => {
     event.preventDefault();
     const { email, password } = event.target;
-    this.props.logIn(email.value, password.value);
-    this.props.setPage('map')
+    props.logIn(email.value, password.value);
+    props.setPage('map')
   };
 
-  render() {
-    const { setPage } = this.props;
+
+    const { setPage } = props;
     return (
       <>
-        {this.props.isLoggedIn ? (
+        {props.isLoggedIn ? (
           <p>
             You are logged in{" "}
-            <button onClick={this.goToProfile}>
+            <button onClick={goToProfile}>
               go to profile
             </button>
           </p>
@@ -40,7 +45,7 @@ export class Home extends Component {
                   <p>Новый пользователь?</p>
                   <button onClick={() => setPage('registration')} className={s.registrationBtn} type="submit">Зарегистрируйтесь</button>
                 </div>
-                <form onSubmit={this.authenticate}>
+                <form onSubmit={authenticate}>
                   <div>
                     <label>
                       <p>Имя пользователя*</p>
@@ -63,7 +68,7 @@ export class Home extends Component {
       </>
     );
   }
-}
+
 
 Home.propTypes = {
   isLoggedIn: PropTypes.bool,

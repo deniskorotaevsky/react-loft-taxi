@@ -1,6 +1,5 @@
 import { PropTypes } from 'prop-types';
 import { Header } from './Header/Header.jsx';
-import { withAuth } from "./AuthContext";
 
 const Profile = (props) => {
     const { setPage } = props;
@@ -16,4 +15,4 @@ const Profile = (props) => {
 Profile.propTypes = {
     setPage: PropTypes.func
 }
-export const ProfileWithAuth = withAuth(Profile);
+export default Profile;
