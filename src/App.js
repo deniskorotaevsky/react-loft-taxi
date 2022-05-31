@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import Map from "./Map";
-import Profile from "./Profile";
-import Login from "./Login/Login";
+import { ProfileWithAuth } from "./Profile";
+import { HomeWithAuth } from "./Home/Home";
 import Registration from "./Registration/Registration";
+import { withAuth } from "./AuthContext";
 
 const PAGES = {
-  login: Login,
-  map: Map,
-  registration: Registration,
-  profile: Profile
+  home: (props) => <HomeWithAuth {...props} />,
+  map: (props) => <Map {...props} />,
+  registration: (props) => <Registration {...props} />,
+  profile: (props) => <ProfileWithAuth {...props} />,
 }
 
 class App extends Component {
-
-  state = { page: 'login' }
+  state = { page: 'home' }
 
   setPage = (page) => {
     this.setState({ page })
@@ -33,4 +33,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withAuth(App);

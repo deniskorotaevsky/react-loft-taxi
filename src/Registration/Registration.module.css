@@ -10,6 +10,10 @@
   justify-content: center;
 }
 
+h1 {
+  font-size: 36px;
+}
+
 .registration_form {
   height: auto;
   width: 500px;
@@ -21,8 +25,13 @@
   justify-content: center;
 }
 
+.registration_form p {
+  color: #959595;
+}
+
 .registration_pole {
   width: 390px;
+  margin: 0 auto;
   margin: 65px 0;
 }
 
@@ -30,6 +39,11 @@
   display: flex;
   align-items: center;
   margin-bottom: 40px;
+}
+
+.registration_newUser {
+  display: flex;
+  align-items: center;
 }
 
 .registration_newUser a {
@@ -46,7 +60,7 @@
   border-radius: 5px;
   border: none;
   font-size: 21px;
-  margin-left: 40%;
+  margin-left: 36%;
   margin-top: 40px; 
 }
 
@@ -59,8 +73,21 @@
 input {
   border: none;
   border-bottom: 1px solid #eaeaea;
-  width: 390px;
+  width: 365px;
   box-shadow: none;
+}
+
+.input_userName {
+  width: 160px;
+  position: relative;
+}
+
+.input_warning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid grey;
+  height: 30px;
 }
 
 input:focus {
@@ -69,8 +96,20 @@ input:focus {
 
 .registration_userName{
   display: flex;
+  justify-content: space-between;
 }
 
-.registration_userName input{
-  width: 90%;
+.input_warning {
+  position: relative;
+  bottom: 20px;
+}
+
+.warning {
+  height: 35px;
+  border-radius: 3px;
+  border: 1px solid red;
+  margin-top: -37px;
+  position: relative;
+  z-index: 11;
+  box-shadow: 0 0 10px rgba(196, 18, 18,0.2);
 }
