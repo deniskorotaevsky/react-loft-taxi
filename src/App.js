@@ -1,31 +1,36 @@
 import React from "react";
-import { ProfileWithAuth } from "./Profile";
-import { Home}  from "./Home/Home";
-import { Map } from "./Map";
+import { Profile } from "./components/Profile/Profile";
+import { Home}  from "./components/Home/Home";
+import { Map } from "./components/Map/Map";
 import "./App.css";
 import PropTypes from 'prop-types';
-import Registration from "./Registration/Registration";
-import { withAuth } from "./AuthContext";
+import Registration from "./components/Registration/Registration";
+import { useContext } from "react";
+import { AuthContext } from "./contexts/AuthContext";
 
 const PAGES = {
   home: (props) => <Home {...props} />,
   map: (props) => <Map {...props} />,
-  profile: (props) => <ProfileWithAuth {...props}/>,
+  profile: (props) => <Profile {...props}/>,
   registration: (props) => <Registration {...props} />,
 };
 
-class App extends React.Component {
-  state = { currentPage: "home" };
+function App() {
 
-  navigateTo =(page) => {
-    if (this.props.isLoggedIn) {
-      this.setState({ currentPage: page });
+  const [state, setState] = React.useState({
+    page: "home"
+  });
+
+  const { isLoggedIn } = useContext(AuthContext);
+
+  const navigateTo =(page) => {
+    if (isLoggedIn) {
+      setState({ page: page });
     } else {
-      this.setState({ currentPage: 'home'});
+      setState({ page: 'home'});
     }
   };
 
-  render() {
     return (
       <>
         <header>
@@ -34,7 +39,7 @@ class App extends React.Component {
               <li>
                 <a
                   onClick={() => {
-                    this.navigateTo("home");
+                    navigateTo("home")
                   }}
                 >
                   Home
@@ -43,7 +48,7 @@ class App extends React.Component {
               <li>
                 <a
                   onClick={() => {
-                    this.navigateTo("map");
+                    navigateTo("map")
                   }}
                 >
                   Map
@@ -52,7 +57,7 @@ class App extends React.Component {
               <li>
                 <a
                   onClick={() => {
-                    this.navigateTo("profile");
+                    navigateTo("profile")
                   }}
                 >
                   Profile
@@ -62,15 +67,14 @@ class App extends React.Component {
           </nav>
         </header>
         <main data-testid="container">
-          <section>{PAGES[this.state.currentPage]({ navigate: this.navigateTo })}</section>
+          <section>{PAGES[state.page]({ navigate: navigateTo })}</section>
         </main>
       </>
     );
   }
-}
 
 App.propTypes = {
   isLoggedIn: PropTypes.bool
 };
 
-export default withAuth(App);
+export default App;

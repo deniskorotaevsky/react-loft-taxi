@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../logo.png';
+import logo from '../../logo.png';
 import s from './Registration.module.css';
 import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';

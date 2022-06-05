@@ -1,8 +1,12 @@
-.registration {
+body {
+  overflow: hidden;
+}
+
+.home {
   margin: 0 auto;
   width: 100vw;
-  height: 100vh;
-  background: url('../background.jpg') center no-repeat;
+  height: 95vh;
+  background: url('../../background.jpg') center no-repeat;
   justify-content: center;
   background-size: cover;
   display: flex;
@@ -10,11 +14,7 @@
   justify-content: center;
 }
 
-h1 {
-  font-size: 36px;
-}
-
-.registration_form {
+.home_form {
   height: auto;
   width: 500px;
   background-color: #fff;
@@ -25,14 +25,19 @@ h1 {
   justify-content: center;
 }
 
-.registration_form p {
+.home_form p {
   color: #959595;
 }
 
-.registration_pole {
+.home_pole {
   width: 390px;
-  margin: 0 auto;
-  margin: 65px 0;
+  margin: 50px 0;
+}
+
+h1 {
+  font-size: 36px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .header_newUser {
@@ -41,17 +46,17 @@ h1 {
   margin-bottom: 40px;
 }
 
-.registration_newUser {
+.home_newUser {
   display: flex;
   align-items: center;
 }
 
-.registration_newUser a {
+.home_newUser a {
   text-decoration: none;
 }
 
 .comeInBtn {
-  width: 250px;
+  width: 160px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -60,8 +65,8 @@ h1 {
   border-radius: 5px;
   border: none;
   font-size: 21px;
-  margin-left: 36%;
-  margin-top: 40px; 
+  margin-left: 60%;
+  margin-top: 40px;
 }
 
 .registrationBtn {
@@ -73,35 +78,13 @@ h1 {
 input {
   border: none;
   border-bottom: 1px solid #eaeaea;
-  width: 365px;
+  width: 366px;
   box-shadow: none;
-}
-
-.input_userName {
-  width: 160px;
-  position: relative;
-}
-
-.input_warning {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 2px solid grey;
-  height: 30px;
+  background: rgba(73, 27, 27, 0);
 }
 
 input:focus {
   outline: 0;
-}
-
-.registration_userName{
-  display: flex;
-  justify-content: space-between;
-}
-
-.input_warning {
-  position: relative;
-  bottom: 20px;
 }
 
 .warning {

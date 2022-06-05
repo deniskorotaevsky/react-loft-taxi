@@ -1,13 +1,13 @@
 import React from "react";
 import { PropTypes } from 'prop-types'
-import { AuthContext } from "../AuthContext";
-import logo from '../logo.png';
+import { AuthContext } from "../../contexts/AuthContext";
+import logo from '../../logo.png';
 import s from './Home.module.css';
 import { useContext } from "react";
 
 export const Home = (props) => {
 
-  const { logIn, logOut, isLoggedIn } = useContext(AuthContext)
+  const { logIn, isLoggedIn } = useContext(AuthContext)
 
   const goToProfile = () => {
     props.navigate("profile");
@@ -41,7 +41,7 @@ export const Home = (props) => {
               <h1>Войти</h1>
               <div className={s.home_newUser}>
                 <p>Новый пользователь?</p>
-                <button onClick={registration} className={s.registrationBtn} type="submit">Зарегистрируйтесь</button>
+                <button onClick={() => {}} className={s.registrationBtn} type="submit">Зарегистрируйтесь</button>
               </div>
               <form onSubmit={authenticate}>
                 <div>
