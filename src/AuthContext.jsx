@@ -1,39 +1,38 @@
 import React from "react";
 
-export const AuthContext = React.createContext()
+export const AuthContext = React.createContext();
 
-export const AuthProvider = ({ children }) => {
-    const [isLoggedin, setIsLoggedin] = React.useState(false)
+export const AuthProvider = ({children}) => {
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
-    const login = (email, password) => {
-        if (email !== 'vali@email.com' || password !== 'correctpassword') {
-            return
-        }
-
-        setIsLoggedin(true)
+  const logIn = (email, password) => {
+    if (email !== "valid@email.com" || password !== "correctpassword") {
+      return;
     }
-    const logOut = () => {
-        setIsLoggedin(false)
-    }
-    return(
-        <AuthContext.Provider value={{login, logOut, isLoggedin}}>
-            {children}
-        </AuthContext.Provider>
-    );
+    setIsLoggedIn(true);
+  };
+
+  const logOut = () => {
+    setIsLoggedIn(false);
+  };
+
+  return (
+    <AuthContext.Provider value={{ logIn, logOut, isLoggedIn }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export const withAuth = (WrappedComponent) => {
-    return class extends React.Component {
-        render() {
-            return (
-                <AuthContext.Consumer>
-                    {
-                        (value) => {
-                            return <WrappedComponent {...value} {...this.props} />
-                        }
-                    }
-                </AuthContext.Consumer>
-            )
-        }
+  return class extends React.Component {
+    render() {
+      return (
+        <AuthContext.Consumer>
+          {(value) => {
+            return <WrappedComponent {...value} {...this.props} />;
+          }}
+        </AuthContext.Consumer>
+      );
     }
-}
+  };
+};

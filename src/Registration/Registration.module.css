@@ -43,6 +43,7 @@ h1 {
 
 .registration_newUser {
   display: flex;
+  align-items: center;
 }
 
 .registration_newUser a {
@@ -59,7 +60,7 @@ h1 {
   border-radius: 5px;
   border: none;
   font-size: 21px;
-  margin-left: 40%;
+  margin-left: 36%;
   margin-top: 40px; 
 }
 
@@ -72,12 +73,12 @@ h1 {
 input {
   border: none;
   border-bottom: 1px solid #eaeaea;
-  width: 390px;
+  width: 365px;
   box-shadow: none;
 }
 
 .input_userName {
-  width: 183px;
+  width: 160px;
   position: relative;
 }
 
