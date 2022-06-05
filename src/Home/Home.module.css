@@ -1,7 +1,11 @@
-.login {
+body {
+  overflow: hidden;
+}
+
+.home {
   margin: 0 auto;
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   background: url('../background.jpg') center no-repeat;
   justify-content: center;
   background-size: cover;
@@ -10,7 +14,7 @@
   justify-content: center;
 }
 
-.login_form {
+.home_form {
   height: auto;
   width: 500px;
   background-color: #fff;
@@ -21,17 +25,19 @@
   justify-content: center;
 }
 
-.login_form p {
+.home_form p {
   color: #959595;
 }
 
-.login_pole {
+.home_pole {
   width: 390px;
-  margin: 65px 0;
+  margin: 50px 0;
 }
 
 h1 {
   font-size: 36px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .header_newUser {
@@ -40,11 +46,13 @@ h1 {
   margin-bottom: 40px;
 }
 
-.login_newUser {
+.home_newUser {
   display: flex;
+  align-items: center;
+  /* justify-content: center; */
 }
 
-.login_newUser a {
+.home_newUser a {
   text-decoration: none;
 }
 
@@ -71,7 +79,7 @@ h1 {
 input {
   border: none;
   border-bottom: 1px solid #eaeaea;
-  width: 386px;
+  width: 366px;
   box-shadow: none;
   background: rgba(73, 27, 27, 0);
 }

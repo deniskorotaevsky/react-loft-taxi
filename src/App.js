@@ -1,27 +1,27 @@
 import React from "react";
 import { ProfileWithAuth } from "./Profile";
-import  Login  from "./Login/Login";
-import  Map  from "./Map";
-import { withAuth } from "./AuthContext";
-import {Registration} from "./Registration/Registration";
-import PropTypes from 'prop-types';
+import { Home}  from "./Home/Home";
+import { Map } from "./Map";
 import "./App.css";
+import PropTypes from 'prop-types';
+import Registration from "./Registration/Registration";
+import { withAuth } from "./AuthContext";
 
 const PAGES = {
-  login: (props) => <LoginWithAuth {...props} />,
+  home: (props) => <Home {...props} />,
   map: (props) => <Map {...props} />,
-  profile: (props) => <ProfileWithAuth {...props} />,
+  profile: (props) => <ProfileWithAuth {...props}/>,
   registration: (props) => <Registration {...props} />,
 };
 
 class App extends React.Component {
-  state = { currentPage: "login" };
+  state = { currentPage: "home" };
 
-  navigateTo = (page) => {
+  navigateTo =(page) => {
     if (this.props.isLoggedIn) {
       this.setState({ currentPage: page });
     } else {
-      this.setState({ currentPage: "login" });
+      this.setState({ currentPage: 'home'});
     }
   };
 
@@ -32,39 +32,37 @@ class App extends React.Component {
           <nav>
             <ul>
               <li>
-                <button
+                <a
                   onClick={() => {
-                    this.navigateTo("login");
+                    this.navigateTo("home");
                   }}
                 >
                   Home
-                </button>
+                </a>
               </li>
               <li>
-                <button
+                <a
                   onClick={() => {
                     this.navigateTo("map");
                   }}
                 >
                   Map
-                </button>
+                </a>
               </li>
               <li>
-                <button
+                <a
                   onClick={() => {
                     this.navigateTo("profile");
                   }}
                 >
                   Profile
-                </button>
+                </a>
               </li>
             </ul>
           </nav>
         </header>
         <main data-testid="container">
-          <section>
-            {PAGES[this.state.currentPage]({ navigate: this.navigateTo })}
-          </section>
+          <section>{PAGES[this.state.currentPage]({ navigate: this.navigateTo })}</section>
         </main>
       </>
     );
@@ -76,4 +74,3 @@ App.propTypes = {
 };
 
 export default withAuth(App);
-
