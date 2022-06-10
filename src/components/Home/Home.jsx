@@ -13,10 +13,6 @@ export const Home = (props) => {
     props.navigate("profile");
   };
 
-  const registration = () => {
-    props.navigate("registration");
-  }
-
   const authenticate = (event) => {
     event.preventDefault();
     const { email, password } = event.target;
@@ -27,7 +23,8 @@ export const Home = (props) => {
     <>
       {isLoggedIn ? (
         <p>
-          You are logged in <button onClick={goToProfile}>
+          You are logged in{" "}
+          <button onClick={goToProfile}>
             go to profile
           </button>
         </p>
@@ -41,22 +38,13 @@ export const Home = (props) => {
               <h1>Войти</h1>
               <div className={s.home_newUser}>
                 <p>Новый пользователь?</p>
-                <button onClick={() => {}} className={s.registrationBtn} type="submit">Зарегистрируйтесь</button>
+                <button onClick={() => { }} className={s.registrationBtn} type="submit">Зарегистрируйтесь</button>
               </div>
               <form onSubmit={authenticate}>
-                <div>
-                  <label>
-                    <p>Имя пользователя*</p>
-                    <input id="email" type='text' name="email" size="28" />
-                  </label>
-                </div>
-                <div>
-                  <label>
-                    <p>Пароль*</p>
-                    <input id="password" type='password' name="password" size="28" />
-
-                  </label>
-                </div>
+                <label htmlFor="email">Email:</label>
+                <input id="email" type='email' name="email" size="28" />
+                <label htmlFor="password">Password:</label>
+                <input id="password" type='password' name="password" size="28" />
                 <button className={s.comeInBtn} type="submit">Войти</button>
               </form>
             </div>
@@ -65,12 +53,9 @@ export const Home = (props) => {
       )}
     </>
   );
-
 };
 
 Home.propTypes = {
-  isLoggedIn: PropTypes.bool,
-  logIn: PropTypes.func,
   navigate: PropTypes.func,
 };
 

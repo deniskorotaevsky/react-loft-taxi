@@ -14,7 +14,7 @@ describe("Map", () => {
       center: [30.3056504, 59.9429126],
       container: getByTestId('map'),
       style: "mapbox://styles/mapbox/streets-v9",
-      zoom: 10,
+      zoom: 10
     });
   });
 });
