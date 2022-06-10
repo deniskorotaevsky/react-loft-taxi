@@ -7,7 +7,7 @@ export const Profile = (props) => {
   const { logOut } = useContext(AuthContext)
 
   const unauthenticate = () => {
-    logOut();
+  logOut();
     props.navigate("home");
   };
 

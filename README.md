@@ -1,4 +1,7 @@
-* [x] Создание приложения при помощи [Create React App](https://create-react-app.dev/docs/getting-started/)
-* [x] Навигация при помощи стейта компонента
-* [x] Вёрстка форм
-* [x] Тестируем компоненты
+* [x] Работа с `ref`
+* [x] Типизация пропов с `PropTypes`
+* [x] Контекст авторизации
+  * `login(email, password)`
+  * `logout()`
+  * `isLoggedIn`
+* [ ] Написание тестов

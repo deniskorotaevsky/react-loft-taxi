@@ -3,8 +3,6 @@ import { Profile } from "./components/Profile/Profile";
 import { Home}  from "./components/Home/Home";
 import { Map } from "./components/Map/Map";
 import "./App.css";
-import PropTypes from 'prop-types';
-import Registration from "./components/Registration/Registration";
 import { useContext } from "react";
 import { AuthContext } from "./contexts/AuthContext";
 
@@ -12,7 +10,6 @@ const PAGES = {
   home: (props) => <Home {...props} />,
   map: (props) => <Map {...props} />,
   profile: (props) => <Profile {...props}/>,
-  registration: (props) => <Registration {...props} />,
 };
 
 function App() {
@@ -72,9 +69,5 @@ function App() {
       </>
     );
   }
-
-App.propTypes = {
-  isLoggedIn: PropTypes.bool
-};
 
 export default App;
